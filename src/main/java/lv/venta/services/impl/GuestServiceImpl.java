@@ -1,6 +1,8 @@
 package lv.venta.services.impl;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +43,17 @@ public class GuestServiceImpl implements IGuestService {
 		else throw new Exception("ID must be positive");
 		
 	}
+	
+	public void addGuestService(Guest guest, HotelService service) {
+		guest.addService(service);
+        guestRepo.save(guest);
+	}
 
 	@Override
 	public void addGuest(String name, String surname, Boolean checkedIn, LocalDateTime CheckedInTime,
 			LocalDateTime CheckedOutTime, ArrayList<Reservation> reservation, Room room,
 			ArrayList<HotelService> services){
-		Guest newGuest = new Guest(name, surname, checkedIn, CheckedInTime, CheckedOutTime, reservation, room, services);
+		Guest newGuest = new Guest(name, surname, checkedIn, CheckedInTime, CheckedOutTime, room, services);
 		guestRepo.save(newGuest);
 	}
 
@@ -62,6 +69,32 @@ public class GuestServiceImpl implements IGuestService {
             return totalExpenses;
         }
         else throw new Exception("No Guest with this ID");
+	}
+
+	@Override
+	public double calculateGuestTotalExpensesById(long id) throws Exception {
+		if(id < 0) {
+			Guest guest = guestRepo.findById(id).orElse(null);
+
+	        double totalExpenses = 0.0;
+
+	        // Aprēķina viesnīcas numura izmaksas
+	        Room room = guest.getRoom();
+	        if (room != null) {
+	            LocalDateTime startDate = guest.getCheckInTime();
+	            LocalDateTime endDate = guest.getCheckOutTime();
+	            long numberOfDays = ChronoUnit.DAYS.between(startDate, endDate); //paņem dienas kā units lai varētu sareizināt ar istabas cenu
+	            double roomExpenses = room.getPrice() * numberOfDays;
+	            totalExpenses += roomExpenses;
+	        }
+
+	        // Aprēķina pakalpojumu tēriņus
+	        for (HotelService service : guest.getServices()) {
+	            totalExpenses += service.getPrice();
+	        }
+	        return totalExpenses;
+	    }
+		else throw new Exception("ID must be positive");
 	}
 	
 }

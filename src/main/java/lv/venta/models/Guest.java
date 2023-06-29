@@ -54,12 +54,10 @@ public class Guest {
     private Boolean checkedIn;
 	
 	@Column(name = "CheckInTime")
-	@NotNull(message = "Date and time must be provided")
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime CheckInTime;
 	
 	@Column(name = "CheckOutTime")
-	@NotNull(message = "Date and time must be provided")
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime CheckOutTime;
     
@@ -77,22 +75,42 @@ public class Guest {
 
 	public Guest(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
 			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname,
-			@NotNull Boolean checkedIn, @NotNull(message = "Date and time must be provided") LocalDateTime checkInTime,
-			@NotNull(message = "Date and time must be provided") LocalDateTime checkOutTime,
-			ArrayList<Reservation> reservations, Room room, ArrayList<HotelService> services) {
+			@NotNull Boolean checkedIn, LocalDateTime checkInTime, LocalDateTime checkOutTime, Room room, ArrayList<HotelService> services) {
 		super();
 		this.name = name;
 		this.surname = surname;
 		this.checkedIn = checkedIn;
 		CheckInTime = checkInTime;
 		CheckOutTime = checkOutTime;
-		this.reservations = reservations;
 		this.room = room;
 		this.services = services;
 	}
 
 	public ArrayList<HotelService> getServices() {
 		return services;
+	}
+	
+	
+
+	public LocalDateTime getCheckInTime() {
+		return CheckInTime;
+	}
+
+	public LocalDateTime getCheckOutTime() {
+		return CheckOutTime;
+	}
+	
+	
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void addService(HotelService service) {
+		if (services == null) {
+            services = new ArrayList<>();
+        }
+        services.add(service);
 	} 
     
     

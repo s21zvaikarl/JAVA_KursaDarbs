@@ -15,7 +15,11 @@ public interface IGuestService {
 	
 	public void deleteGuestById(long id) throws Exception;
 	
+	public void addGuestService(Guest guest, HotelService service);
+	
 	public void addGuest(String name, String surname, Boolean checkedIn, LocalDateTime CheckedInTime, LocalDateTime CheckedOutTime, ArrayList<Reservation> reservation, Room room, ArrayList<HotelService> services) throws Exception;
 	
 	public double calculateGuestServiceExpensesById(long id)throws Exception;
+	
+	public double calculateGuestTotalExpensesById(long id) throws Exception;
 }

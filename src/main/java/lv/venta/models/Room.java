@@ -46,4 +46,18 @@ public class Room {
 	@Column(name = "isBooked")
     @NotNull
     private boolean isBooked;
+
+	public Room(@NotBlank int number, @NotBlank RoomType type, @NotNull Double price, @NotNull boolean isBooked) {
+		super();
+		this.number = number;
+		this.type = type;
+		this.price = price;
+		this.isBooked = isBooked;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+	
+	
 }

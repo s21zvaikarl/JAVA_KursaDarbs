@@ -47,11 +47,10 @@ public class HotelService {
     @ToString.Exclude
     private ArrayList<Guest> guests;
 
-	public HotelService(@NotNull HotelServiceType type, @NotNull Double price, ArrayList<Guest> guests) {
+	public HotelService(@NotNull HotelServiceType type, @NotNull Double price) {
 		super();
 		this.type = type;
 		this.price = price;
-		this.guests = guests;
 	}
 
 	public Double getPrice() {
