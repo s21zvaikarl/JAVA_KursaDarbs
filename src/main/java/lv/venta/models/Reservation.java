@@ -37,7 +37,7 @@ public class Reservation {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate ReservationDateStart;
 	
-	@Column(name = "ReservationDateStart")
+	@Column(name = "ReservationDateEnd")
 	@NotNull(message = "Date must be provided")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate ReservationDateEnd;

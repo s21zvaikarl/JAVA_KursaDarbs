@@ -56,12 +56,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	}
 
 	@Override
-	public void addEmployeeById(long id, String name, String surname, EmployeePosition position) throws Exception {
-		if(id > 0) {
-			Employee newEmployee = new Employee(name, surname, position);
-			employeeRepo.save(newEmployee);
-		}
-		else throw new Exception("ID must be positive");
+	public void addEmployee(String name, String surname, EmployeePosition position) {
+		Employee newEmployee = new Employee(name, surname, position);
+		employeeRepo.save(newEmployee);
 	}
 
 	@Override

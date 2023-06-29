@@ -89,6 +89,10 @@ public class Guest {
 		this.reservations = reservations;
 		this.room = room;
 		this.services = services;
+	}
+
+	public ArrayList<HotelService> getServices() {
+		return services;
 	} 
     
     

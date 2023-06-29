@@ -53,6 +53,10 @@ public class HotelService {
 		this.price = price;
 		this.guests = guests;
 	}
+
+	public Double getPrice() {
+		return price;
+	}
     
     
 

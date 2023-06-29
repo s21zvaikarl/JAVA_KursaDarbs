@@ -14,7 +14,7 @@ public interface IEmployeeService {
 	
 	public void deleteEmployeeById(long id) throws Exception;
 	
-	public void addEmployeeById(long id, String name, String surname, EmployeePosition position) throws Exception;
+	public void addEmployee(String name, String surname, EmployeePosition position);
 	
 	public void updateEmployeeById(long id, String name, String surname, EmployeePosition position) throws Exception;
 }
