@@ -42,7 +42,7 @@ public class Employee {
 	@Pattern(regexp = "[A-Z]{1}[a-z]+")
 	private String surname;
     
-	@Column(name = "ServiceType")
+	@Column(name = "Position")
 	@NotNull
     @Enumerated(EnumType.STRING)
     private EmployeePosition positions;
@@ -53,6 +53,30 @@ public class Employee {
 		super();
 		this.name = name;
 		this.surname = surname;
+		this.positions = positions;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public EmployeePosition getPositions() {
+		return positions;
+	}
+
+	public void setPositions(EmployeePosition positions) {
 		this.positions = positions;
 	}
 
