@@ -14,6 +14,7 @@ import lv.venta.models.Guest;
 import lv.venta.models.HotelService;
 import lv.venta.models.HotelServiceType;
 import lv.venta.models.Reservation;
+import lv.venta.models.Review;
 import lv.venta.models.Room;
 import lv.venta.models.RoomType;
 import lv.venta.repos.IEmployeeRepo;
@@ -120,6 +121,11 @@ public class JavaMd21Application {
 				resRepo.save(res6);
 				resRepo.save(res7);
 				resRepo.save(res8);
+				
+				Review rev1 = new Review(g3, "Skaists skats pa logu un draudzigi darbinieki", 5);
+				Review rev2 = new Review(g4, "Briesmiga pieredze!!!! Vairs nekad neatgriezisos!!!", 1);
+				revRepo.save(rev1);
+				revRepo.save(rev2);
 				
 			}
 			
