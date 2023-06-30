@@ -1,6 +1,5 @@
 package lv.venta.services.impl;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -26,8 +25,8 @@ public class GuestServiceImpl implements IGuestService {
 	}
 
 	@Override
-	public Guest findGuestByNameOrSurname(String name) throws Exception {
-		return guestRepo.findByNameOrSurname(name);
+	public Guest findGuestByNameAndSurname(String name, String surname) throws Exception {
+		return guestRepo.findByNameOrSurname(name, surname);
 	}
 
 	@Override

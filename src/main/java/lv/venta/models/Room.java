@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -31,11 +30,9 @@ public class Room {
 	private long idro;
 	
 	@Column(name = "Number")
-	@NotBlank
     private int number;
     
 	@Column(name = "Type")
-    @NotBlank
     @Enumerated(EnumType.STRING)
     private RoomType type;
     
@@ -44,10 +41,9 @@ public class Room {
     private Double price;
     
 	@Column(name = "isBooked")
-    @NotNull
     private boolean isBooked;
 
-	public Room(@NotBlank int number, @NotBlank RoomType type, @NotNull Double price, @NotNull boolean isBooked) {
+	public Room(int number, RoomType type, @NotNull Double price, boolean isBooked) {
 		super();
 		this.number = number;
 		this.type = type;

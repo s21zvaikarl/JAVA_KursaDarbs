@@ -10,7 +10,7 @@ import lv.venta.models.Review;
 @Repository
 public interface IReviewRepo extends CrudRepository<Review, Long>{
 
-	Review findByGuestId(long id);
+	Review findByGuestIdg(long id);
 
 	ArrayList<Review> findByRating(int rating);
 

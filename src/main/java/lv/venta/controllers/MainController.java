@@ -16,7 +16,7 @@ public class MainController {
 	@Autowired 
 	private IEmployeeService employeeService;
 	
-	@GetMapping("/employee/showAll")
+	@GetMapping("/employee/showAll")//localhost:8080/employee/showAll
 	public String showAllEmployees(Model model) {
 		ArrayList<Employee> employees = employeeService.selectAllEmployees();
 		model.addAttribute("employees", employees);

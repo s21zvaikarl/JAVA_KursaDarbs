@@ -40,4 +40,13 @@ public class Review {
     @Min(1)
     @Max(5)
     private int rating;
+
+	public Review(@NotNull Guest guest, String comment, @Min(1) @Max(5) int rating) {
+		super();
+		this.guest = guest;
+		this.comment = comment;
+		this.rating = rating;
+	}
+    
+    
 }

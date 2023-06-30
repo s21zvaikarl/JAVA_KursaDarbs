@@ -18,6 +18,6 @@ public interface IRoomRepo extends CrudRepository<Room, Long>{
 
 	ArrayList<Room> findByPriceBetween(double minPrice, double maxPrice);
 
-	ArrayList<Room> findByGuest(Guest guest);
+	//ArrayList<Room> findByRoomGuest(Guest guest);
 
 }

@@ -7,5 +7,5 @@ import lv.venta.models.Reservation;
 public interface IReservationService {
 	public ArrayList<Reservation> findAllReservationsToday();
 	
-	public ArrayList<Reservation> findReservationByGuestNameOrSurname(String name);
+	//public ArrayList<Reservation> findReservationByGuestNameAndSurname(String name, String surname);
 }

@@ -21,10 +21,11 @@ public class ReservationServiceImpl implements IReservationService{
 		LocalDate today = LocalDate.now();
         return new ArrayList<>(resRepo.findByReservationDateStart(today));
 	}
-
+	/*
 	@Override
-	public ArrayList<Reservation> findReservationByGuestNameOrSurname(String name) {
-		return new ArrayList<>(resRepo.findByGuestNameOrSurname(name));
+	public ArrayList<Reservation> findReservationByGuestNameAndSurname(String name, String surname) {
+		return new ArrayList<>(resRepo.findByGuestNameAndSurname(name, surname));
 	}
+	*/
 
 }

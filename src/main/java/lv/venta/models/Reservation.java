@@ -35,12 +35,12 @@ public class Reservation {
 	@Column(name = "ReservationDateStart")
 	@NotNull(message = "Date must be provided")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private LocalDate ReservationDateStart;
+	private LocalDate reservationDateStart;
 	
 	@Column(name = "ReservationDateEnd")
 	@NotNull(message = "Date must be provided")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private LocalDate ReservationDateEnd;
+	private LocalDate reservationDateEnd;
     
     @NotNull
     @ManyToOne
@@ -52,12 +52,12 @@ public class Reservation {
     @JoinColumn(name = "Idro")
     private Room room;
 
-	public Reservation(@NotNull(message = "Date must be provided") LocalDate reservationDateStart,
-			@NotNull(message = "Date must be provided") LocalDate reservationDateEnd, @NotNull Guest guest,
+	public Reservation(@NotNull(message = "Date must be provided") LocalDate resDateStart,
+			@NotNull(message = "Date must be provided") LocalDate resDateEnd, @NotNull Guest guest,
 			@NotNull Room room) {
 		super();
-		ReservationDateStart = reservationDateStart;
-		ReservationDateEnd = reservationDateEnd;
+		reservationDateStart = resDateStart;
+		reservationDateEnd = resDateEnd;
 		this.guest = guest;
 		this.room = room;
 	}

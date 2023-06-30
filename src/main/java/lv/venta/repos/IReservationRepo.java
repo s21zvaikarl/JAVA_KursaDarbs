@@ -12,5 +12,5 @@ import lv.venta.models.Reservation;
 public interface IReservationRepo extends CrudRepository<Reservation, Long>{
 
 	ArrayList<Reservation> findByReservationDateStart(LocalDate date);
-    ArrayList<Reservation> findByGuestNameOrSurname(String name);
+    //ArrayList<Reservation> findByGuestNameAndSurname(String name, String surname);
 }

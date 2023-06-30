@@ -8,6 +8,6 @@ import lv.venta.models.Guest;
 @Repository
 public interface IGuestRepo extends CrudRepository<Guest, Long> {
 
-	Guest findByNameOrSurname(String name);
+	Guest findByNameOrSurname(String name, String surname);
 
 }

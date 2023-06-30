@@ -35,6 +35,9 @@ public class JavaMd21Application {
 		return new CommandLineRunner() {
 			@Override
 			public void run(String... args) throws Exception {
+				
+				System.out.println("Running testModel method...");
+				
 				Employee e1 = new Employee("Janis", "Berzins", EmployeePosition.bartender);
 				Employee e2 = new Employee("Ivars", "Eglitis", EmployeePosition.chef);
 				Employee e3 = new Employee("Aivars", "Melnalksnitis", EmployeePosition.concierge);
@@ -84,13 +87,13 @@ public class JavaMd21Application {
 				
 				
 				Guest g1 = new Guest("Pauline", "Eidina", false, null, null, room1, null);
-				Guest g2 = new Guest("Klaudijs", "Feldmanis",true, LocalDateTime.of(30,05,2023, 13,05), LocalDateTime.of(30,06,2023, 13,05), room2, null);
-				Guest g3 = new Guest("Simona", "Duka", true, LocalDateTime.of(30,06,2023, 13,05), LocalDateTime.of(4,07,2023, 13,05), room3, null);
-				Guest g4 = new Guest("Almants", "Tucins", true, LocalDateTime.of(30,04,2023, 13,05), LocalDateTime.of(2,05,2023, 13,05), room4, null);
+				Guest g2 = new Guest("Klaudijs", "Feldmanis",true, LocalDateTime.of(2023, 5, 30, 13, 5), LocalDateTime.of(2023, 6, 30, 13, 5), room2, null);
+				Guest g3 = new Guest("Simona", "Duka", true, LocalDateTime.of(2023, 3, 30, 13, 5), LocalDateTime.of(2023, 4, 15, 13, 5), room3, null);
+				Guest g4 = new Guest("Almants", "Tucins", true, LocalDateTime.of(2023, 4, 20, 13, 5), LocalDateTime.of(2023, 4, 30, 13, 5), room4, null);
 				Guest g5 = new Guest("Peteris", "Paeglitis", false, null, null, room5, null);
 				Guest g6 = new Guest("Lita", "Eidina", false, null, null, room6, null);
-				Guest g7 = new Guest("Zanete", "Uzavniece", true, LocalDateTime.of(15,05,2023, 13,05), LocalDateTime.of(20,05,2023, 11,05), room1, null);
-				Guest g8 = new Guest("Gudrite", "Veckalna", true, LocalDateTime.of(20,05,2023, 13,05), LocalDateTime.of(25,05,2023, 11,05), room2, null);
+				Guest g7 = new Guest("Zanete", "Uzavniece", true, LocalDateTime.of(2023, 5, 30, 13, 5), LocalDateTime.of(2023, 5, 31, 13, 5), room1, null);
+				Guest g8 = new Guest("Gudrite", "Veckalna", true, LocalDateTime.of(2023, 3, 30, 13, 5), LocalDateTime.of(2023, 4, 30, 13, 5), room2, null);
 				gueRepo.save(g1);
 				gueRepo.save(g2);
 				gueRepo.save(g3);

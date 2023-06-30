@@ -12,7 +12,7 @@ public interface IRoomService {
 	
     ArrayList<Room> selectRoomByType(RoomType type);
     
-    ArrayList<Room> findRoomByGuest(Guest guest);
+    //ArrayList<Room> findRoomByGuest(Guest guest);
     
     ArrayList<Room> findRoomByPriceRange(double minPrice, double maxPrice) throws Exception;
     

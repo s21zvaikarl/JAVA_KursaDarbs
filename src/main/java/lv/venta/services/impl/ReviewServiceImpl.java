@@ -18,7 +18,7 @@ public class ReviewServiceImpl implements IReviewService{
 	@Override
 	public Review findReviewByGuestId(long id) throws Exception {
 		if(id > 0) {
-			return revRepo.findByGuestId(id);
+			return revRepo.findByGuestIdg(id);
 		}
 		else throw new Exception("ID must be positive");
 	}

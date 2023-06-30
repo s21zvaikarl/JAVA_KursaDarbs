@@ -11,7 +11,7 @@ import lv.venta.models.Room;
 public interface IGuestService {
 	public ArrayList<Guest> selectAllGuests();
 	
-	public Guest findGuestByNameOrSurname(String name) throws Exception;
+	public Guest findGuestByNameAndSurname(String name, String surname) throws Exception;
 	
 	public void deleteGuestById(long id) throws Exception;
 	

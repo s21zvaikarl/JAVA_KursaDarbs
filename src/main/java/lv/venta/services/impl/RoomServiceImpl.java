@@ -26,11 +26,12 @@ public class RoomServiceImpl implements IRoomService {
 	public ArrayList<Room> selectRoomByType(RoomType type) {
 		return roomRepo.findByType(type);
 	}
-
+	/*
 	@Override
 	public ArrayList<Room> findRoomByGuest(Guest guest) {
-		return roomRepo.findByGuest(guest);
+		return roomRepo.findByRoomGuest(guest);
 	}
+	*/
 
 	@Override
 	public ArrayList<Room> findRoomByPriceRange(double minPrice, double maxPrice) throws Exception {
