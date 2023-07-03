@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Employee</h1>
+
+    <form th:action="@{/employee/update/{id}(id=${employee.getIde()})}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:value="${employee.getName()}">
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" th:value="${employee.getSurname()}">
+
+        <label for="positions">Positions:</label>
+        <select id="positions" name="positions" th:value="${employee.getPositions()}">
+            <option th:each="position : ${employeePosition}"
+                    th:value="${position}"
+                    th:text="${position}"></option>
+        </select>
+
+        <button type="submit">Update Employee</button>
+    </form>
+</body>
+</html>

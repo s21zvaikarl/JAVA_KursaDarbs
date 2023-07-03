@@ -1,7 +1,8 @@
 package lv.venta.models;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,7 +14,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -61,32 +61,17 @@ public class Guest {
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime CheckOutTime;
     
-    @OneToMany(mappedBy = "guest")
-    @ToString.Exclude
-    private ArrayList<Reservation> reservations;
-    
     @ManyToOne
     @JoinColumn(name = "Idro")
     private Room room;
     
     @ManyToMany
     @JoinColumn(name = "Ids")
-    private ArrayList<HotelService> services;
+    private Set<HotelService> services;
 
-	public Guest(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
-			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname,
-			@NotNull Boolean checkedIn, LocalDateTime checkInTime, LocalDateTime checkOutTime, Room room, ArrayList<HotelService> services) {
-		super();
-		this.name = name;
-		this.surname = surname;
-		this.checkedIn = checkedIn;
-		CheckInTime = checkInTime;
-		CheckOutTime = checkOutTime;
-		this.room = room;
-		this.services = services;
-	}
+	
 
-	public ArrayList<HotelService> getServices() {
+	public Set<HotelService> getServices() {
 		return services;
 	}
 	
@@ -107,10 +92,24 @@ public class Guest {
 	}
 
 	public void addService(HotelService service) {
-		if (services == null) {
-            services = new ArrayList<>();
+        if (services == null) {
+            services = new HashSet<>();
         }
-        services.add(service);
+    }
+
+	
+
+	public Guest(@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String name,
+			@NotNull @Size(min = 3, max = 20) @Pattern(regexp = "[A-Z]{1}[a-z]+") String surname,
+			@NotNull Boolean checkedIn, LocalDateTime checkInTime, LocalDateTime checkOutTime, Room room, Set<HotelService> services) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.checkedIn = checkedIn;
+		CheckInTime = checkInTime;
+		CheckOutTime = checkOutTime;
+		this.room = room;
+		this.services = services;
 	} 
     
     

@@ -44,21 +44,14 @@ public class Reservation {
     
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "Idg")
-    private Guest guest;
-    
-    @NotNull
-    @ManyToOne
     @JoinColumn(name = "Idro")
     private Room room;
 
 	public Reservation(@NotNull(message = "Date must be provided") LocalDate resDateStart,
-			@NotNull(message = "Date must be provided") LocalDate resDateEnd, @NotNull Guest guest,
-			@NotNull Room room) {
+			@NotNull(message = "Date must be provided") LocalDate resDateEnd, @NotNull Room room) {
 		super();
 		reservationDateStart = resDateStart;
 		reservationDateEnd = resDateEnd;
-		this.guest = guest;
 		this.room = room;
 	}
     

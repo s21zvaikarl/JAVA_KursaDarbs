@@ -87,13 +87,31 @@ public class JavaMd21Application {
 				hsRepo.save(hs4);
 				
 				
+				Reservation res1 = new Reservation(LocalDate.of(2023, 7, 4), LocalDate.of(2023, 7, 8) , room1);
+				Reservation res2 = new Reservation(LocalDate.of(2023, 5, 30), LocalDate.of(2023, 6, 30) , room2);
+				Reservation res3 = new Reservation(LocalDate.of(2023, 6, 30), LocalDate.of(2023, 7, 4) , room3);
+				Reservation res4 = new Reservation(LocalDate.of(2023, 4, 4), LocalDate.of(2023, 5, 2) , room4);
+				Reservation res5 = new Reservation(LocalDate.of(2023, 8, 20), LocalDate.of(2023, 8, 21) ,room5);
+				Reservation res6 = new Reservation(LocalDate.of(2023, 9, 3), LocalDate.of(2023, 9, 10) , room6);
+				Reservation res7 = new Reservation(LocalDate.of(2023, 5, 15), LocalDate.of(2023, 5, 20) , room1);
+				Reservation res8 = new Reservation(LocalDate.of(2023, 5, 20), LocalDate.of(2023, 5, 25) , room2);
+				resRepo.save(res1);
+				resRepo.save(res2);
+				resRepo.save(res3);
+				resRepo.save(res4);
+				resRepo.save(res5);
+				resRepo.save(res6);
+				resRepo.save(res7);
+				resRepo.save(res8);
+				
+				
 				Guest g1 = new Guest("Pauline", "Eidina", false, null, null, room1, null);
 				Guest g2 = new Guest("Klaudijs", "Feldmanis",true, LocalDateTime.of(2023, 5, 30, 13, 5), LocalDateTime.of(2023, 6, 30, 13, 5), room2, null);
 				Guest g3 = new Guest("Simona", "Duka", true, LocalDateTime.of(2023, 3, 30, 13, 5), LocalDateTime.of(2023, 4, 15, 13, 5), room3, null);
 				Guest g4 = new Guest("Almants", "Tucins", true, LocalDateTime.of(2023, 4, 20, 13, 5), LocalDateTime.of(2023, 4, 30, 13, 5), room4, null);
-				Guest g5 = new Guest("Peteris", "Paeglitis", false, null, null, room5, null);
-				Guest g6 = new Guest("Lita", "Eidina", false, null, null, room6, null);
-				Guest g7 = new Guest("Zanete", "Uzavniece", true, LocalDateTime.of(2023, 5, 30, 13, 5), LocalDateTime.of(2023, 5, 31, 13, 5), room1, null);
+				Guest g5 = new Guest("Peteris", "Paeglitis", false, null, null,  room5, null);
+				Guest g6 = new Guest("Lita", "Eidina", false, null, null,  room6, null);
+				Guest g7 = new Guest("Zanete", "Uzavniece", true, LocalDateTime.of(2023, 5, 30, 13, 5), LocalDateTime.of(2023, 5, 31, 13, 5),  room1, null);
 				Guest g8 = new Guest("Gudrite", "Veckalna", true, LocalDateTime.of(2023, 3, 30, 13, 5), LocalDateTime.of(2023, 4, 30, 13, 5), room2, null);
 				gueRepo.save(g1);
 				gueRepo.save(g2);
@@ -104,23 +122,6 @@ public class JavaMd21Application {
 				gueRepo.save(g7);
 				gueRepo.save(g8);
 				
-				
-				Reservation res1 = new Reservation(LocalDate.of(2023, 7, 4), LocalDate.of(2023, 7, 8) , g1, room1);
-				Reservation res2 = new Reservation(LocalDate.of(2023, 5, 30), LocalDate.of(2023, 6, 30) , g2, room2);
-				Reservation res3 = new Reservation(LocalDate.of(2023, 6, 30), LocalDate.of(2023, 7, 4) , g3, room3);
-				Reservation res4 = new Reservation(LocalDate.of(2023, 4, 4), LocalDate.of(2023, 5, 2) , g4, room4);
-				Reservation res5 = new Reservation(LocalDate.of(2023, 8, 20), LocalDate.of(2023, 8, 21) , g5, room5);
-				Reservation res6 = new Reservation(LocalDate.of(2023, 9, 3), LocalDate.of(2023, 9, 10) , g6, room6);
-				Reservation res7 = new Reservation(LocalDate.of(2023, 5, 15), LocalDate.of(2023, 5, 20) , g7, room1);
-				Reservation res8 = new Reservation(LocalDate.of(2023, 5, 20), LocalDate.of(2023, 5, 25) , g8, room2);
-				resRepo.save(res1);
-				resRepo.save(res2);
-				resRepo.save(res3);
-				resRepo.save(res4);
-				resRepo.save(res5);
-				resRepo.save(res6);
-				resRepo.save(res7);
-				resRepo.save(res8);
 				
 				Review rev1 = new Review(g3, "Skaists skats pa logu un draudzigi darbinieki", 5);
 				Review rev2 = new Review(g4, "Briesmiga pieredze!!!! Vairs nekad neatgriezisos!!!", 1);

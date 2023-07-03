@@ -3,13 +3,13 @@ package lv.venta.services.impl;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lv.venta.models.Guest;
 import lv.venta.models.HotelService;
-import lv.venta.models.Reservation;
 import lv.venta.models.Room;
 import lv.venta.repos.IGuestRepo;
 import lv.venta.services.IGuestService;
@@ -22,6 +22,22 @@ public class GuestServiceImpl implements IGuestService {
 	@Override
 	public ArrayList<Guest> selectAllGuests() {
 		return (ArrayList<Guest>) guestRepo.findAll();
+	}
+	
+	@Override
+	public Guest findGuestById(long id) throws Exception {
+		if(id > 0) {
+			if(guestRepo.existsById(id)) {
+				Guest temp = guestRepo.findById(id).get();
+				return temp;
+			}
+			else {
+				throw new Exception("No guest with this ID");
+			}
+		}
+		else {
+			throw new Exception("Wrong ID");
+		}
 	}
 
 	@Override
@@ -50,8 +66,8 @@ public class GuestServiceImpl implements IGuestService {
 
 	@Override
 	public void addGuest(String name, String surname, Boolean checkedIn, LocalDateTime CheckedInTime,
-			LocalDateTime CheckedOutTime, ArrayList<Reservation> reservation, Room room,
-			ArrayList<HotelService> services){
+			LocalDateTime CheckedOutTime, Room room,
+			Set<HotelService> services){
 		Guest newGuest = new Guest(name, surname, checkedIn, CheckedInTime, CheckedOutTime, room, services);
 		guestRepo.save(newGuest);
 	}
@@ -60,7 +76,7 @@ public class GuestServiceImpl implements IGuestService {
 	public double calculateGuestServiceExpensesById(long id) throws Exception {
 		Guest guest = guestRepo.findById(id).orElse(null);
         if (guest != null) {
-            ArrayList<HotelService> services = guest.getServices();
+            Set<HotelService> services = guest.getServices();
             double totalExpenses = 0.0;
             for (HotelService service : services) {
                 totalExpenses += service.getPrice();
@@ -93,6 +109,27 @@ public class GuestServiceImpl implements IGuestService {
 	        }
 	        return totalExpenses;
 	    }
+		else throw new Exception("ID must be positive");
+	}
+	
+	@Override
+	public void updateGuestById(long id, String name, String surname, Boolean checkedIn, LocalDateTime CheckedInTime,
+			LocalDateTime CheckedOutTime, Room room,
+			Set<HotelService> services) throws Exception {
+		if(id > 0) {
+			if(guestRepo.existsById(id)) {
+				Guest temp = guestRepo.findById(id).get();
+				temp.setName(name);
+				temp.setSurname(surname);
+				temp.setCheckedIn(checkedIn);
+				temp.setCheckInTime(CheckedOutTime);
+				temp.setCheckOutTime(CheckedOutTime);
+				temp.setRoom(room);
+				temp.setServices(services);
+				guestRepo.save(temp);
+			}
+			else throw new Exception("Guest not found");
+		}
 		else throw new Exception("ID must be positive");
 	}
 	

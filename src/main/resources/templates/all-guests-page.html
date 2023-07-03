@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Guests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Guests</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Checked-in status</th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>Room</th>
+            <th>Services</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="guest : ${guests}">
+            <td th:text="${guest.getIdg()}"></td>
+            <td th:text="${guest.getName()}"></td>
+            <td th:text="${guest.getSurname()}"></td>
+            <td th:text="${guest.getCheckedIn()}"></td>
+            <td th:text="${guest.getCheckInTime()}"></td>
+            <td th:text="${guest.getCheckOutTime()}"></td>
+            <td th:text="${guest.getRoom()}"></td>
+            <td th:text="${guest.getServices}"></td>
+            <td>
+                <a th:href="@{/guest/update/{id}(id=${guest.getIdg()})}">Edit</a>
+                <a th:href="@{/guest/remove/{id}(id=${guest.getIdg()})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

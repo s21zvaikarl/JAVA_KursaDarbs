@@ -1,0 +1,66 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <title>Update Guest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Update Guest</h2>
+    <form th:action="@{/guest/update/{id}(id=${guest.getIdg})}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" />
+
+        <label for="surname">Surname:</label>
+        <input type="text" th:field="*{surname}" />
+
+        <label for="checkedIn">Checked In:</label>
+        <input type="checkbox" th:field="*{checkedIn}" />
+
+        <label for="checkInTime">Check-In Time:</label>
+        <input type="text" th:field="*{checkInTime}" />
+
+        <label for="checkOutTime">Check-Out Time:</label>
+        <input type="text" th:field="*{checkOutTime}" />
+
+        
+
+        <input type="submit" value="Update" />
+    </form>
+</body>
+</html>

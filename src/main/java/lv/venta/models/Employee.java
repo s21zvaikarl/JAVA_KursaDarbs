@@ -55,6 +55,8 @@ public class Employee {
 		this.surname = surname;
 		this.positions = positions;
 	}
+	
+	
 
 	public String getName() {
 		return name;
@@ -65,7 +67,9 @@ public class Employee {
 	}
 
 	public String getSurname() {
-		return surname;
+		
+			return surname;
+		
 	}
 
 	public void setSurname(String surname) {
@@ -73,12 +77,19 @@ public class Employee {
 	}
 
 	public EmployeePosition getPositions() {
-		return positions;
+		
+			return positions;
+		
 	}
 
 	public void setPositions(EmployeePosition positions) {
 		this.positions = positions;
 	}
+
+
+
+	
+
 
 	
     
